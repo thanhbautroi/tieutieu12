@@ -1,0 +1,26 @@
+{
+  "name": "tieu-tieu",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@e965/xlsx": "^0.20.3",
+    "@socket.io/mongo-adapter": "^0.4.0",
+    "bcryptjs": "^3.0.3",
+    "dotenv": "^18.0.9",
+    "express": "^4.19.2",
+    "express-rate-limit": "^8.7.1",
+    "mongodb": "^7.7.0",
+    "socket.io": "^4.7.5"
+  },
+  "workspaces": [
+    "server"
+  ],
+  "scripts": {
+    "start": "npm --workspace server start",
+    "test:simulate": "npm --workspace server run test:simulate",
+    "reset-admin-password": "npm --workspace server run reset-admin-password",
+    "test": "npm --workspace server test"
+  }
+}

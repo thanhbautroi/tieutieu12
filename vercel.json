@@ -1,0 +1,32 @@
+{
+  "regions": [
+    "sin1"
+  ],
+  "functions": {
+    "api/socket-io.js": {
+      "maxDuration": 300
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/client/index.html"
+    },
+    {
+      "source": "/vendor/xlsx/:path*",
+      "destination": "/api/vendor/xlsx/:path*"
+    },
+    {
+      "source": "/socket.io/socket.io.js",
+      "destination": "/api/socket-io/socket.io/socket.io.js"
+    },
+    {
+      "source": "/health",
+      "destination": "/api/health"
+    },
+    {
+      "source": "/:path*",
+      "destination": "/client/:path*"
+    }
+  ]
+}

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#4a0e0e">
+<title>Tiểu Tiểu — Lớp học ảo</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<main id="auth-screen">
+  <div class="auth-frame-corner corner-tl" aria-hidden="true"></div>
+  <div class="auth-frame-corner corner-tr" aria-hidden="true"></div>
+  <div class="auth-frame-corner corner-bl" aria-hidden="true"></div>
+  <div class="auth-frame-corner corner-br" aria-hidden="true"></div>
+
+  <section class="auth-scene" aria-labelledby="school-name">
+    <h1 id="school-name" class="auth-school-banner">Trung tâm ngoại ngữ Tiếu Tiếu</h1>
+
+    <div class="auth-gate">
+      <div class="auth-gate-roof" aria-hidden="true">
+        <img class="auth-gate-roof-img" src="assets/gate-top.png" alt="" draggable="false">
+        <img class="auth-gate-logo" src="assets/logo.png" alt="" draggable="false">
+      </div>
+
+      <div class="auth-gate-body">
+        <div class="auth-pillar auth-pillar-left" aria-hidden="true">
+          <div class="pillar-shaft"></div>
+          <div class="pillar-base"></div>
+        </div>
+
+        <div class="auth-card">
+          <h2 id="auth-title" class="auth-title">đăng nhập</h2>
+
+          <div class="auth-tabs hidden" role="tablist" aria-label="Tài khoản">
+            <button id="login-tab" class="auth-tab active" type="button" role="tab" aria-selected="true">Đăng nhập</button>
+            <button id="register-tab" class="auth-tab" type="button" role="tab" aria-selected="false">Đăng ký</button>
+          </div>
+
+          <form id="auth-form">
+            <div class="auth-field">
+              <label for="username-input">tk</label>
+              <div class="pixel-input-wrap">
+                <input id="username-input" name="username" type="text" minlength="3" maxlength="20"
+                  pattern="[A-Za-z0-9_]{3,20}" autocomplete="username" placeholder="Nhập tài khoản..."
+                  title="3-20 ký tự chữ, số hoặc dấu gạch dưới" required>
+              </div>
+            </div>
+
+            <div class="auth-field">
+              <label for="password-input">mk</label>
+              <div class="pixel-input-wrap">
+                <input id="password-input" name="password" type="password" minlength="10" maxlength="72"
+                  autocomplete="current-password" placeholder="Nhập mật khẩu..."
+                  title="Ít nhất 10 ký tự" required>
+              </div>
+            </div>
+
+            <div id="confirm-password-field" class="auth-field hidden">
+              <label for="confirm-password-input">nhập lại mk</label>
+              <div class="pixel-input-wrap">
+                <input id="confirm-password-input" name="confirmPassword" type="password"
+                  minlength="10" maxlength="72" autocomplete="new-password" placeholder="Nhập lại mật khẩu..."
+                  title="Nhập lại mật khẩu">
+              </div>
+            </div>
+
+            <div id="server-field" class="auth-field">
+              <label for="server-select">sever</label>
+              <div class="pixel-select-wrap">
+                <select id="server-select" name="server" aria-label="Chọn máy chủ">
+                  <option value="K35">Phòng K35 — Tiểu Tiểu</option>
+                </select>
+                <span class="pixel-select-arrow" aria-hidden="true"></span>
+              </div>
+            </div>
+
+            <p id="auth-message" class="auth-message" role="status" aria-live="polite"></p>
+
+            <div class="auth-actions">
+              <button id="auth-submit" class="pixel-wood-btn" type="submit">đăng nhập</button>
+              <button id="auth-mode-toggle" class="pixel-wood-btn" type="button">Đăng ký</button>
+            </div>
+          </form>
+
+          <p class="auth-footnote">make by to thanhbautroi</p>
+        </div>
+
+        <div class="auth-pillar auth-pillar-right" aria-hidden="true">
+          <div class="pillar-shaft"></div>
+          <div class="pillar-base"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<main id="character-screen" class="hidden">
+  <section class="character-page">
+    <header class="character-brand">
+      <div class="character-brand-seal" aria-hidden="true">笑</div>
+      <div>
+        <p>TRUNG TÂM NGOẠI NGỮ</p>
+        <h1>Tiểu Tiểu</h1>
+      </div>
+    </header>
+
+    <form id="character-form" class="character-layout">
+      <section class="character-options">
+        <div class="character-heading">
+          <div>
+            <p class="character-kicker">BƯỚC ĐẦU TIÊN</p>
+            <h2>Tạo nhân vật</h2>
+          </div>
+          <button id="character-logout" class="back-button" type="button">Đăng xuất</button>
+        </div>
+        <p class="character-intro">Chọn diện mạo để bắt đầu hành trình.</p>
+
+        <label class="nickname-label" for="character-nickname">Tên nhân vật</label>
+        <input id="character-nickname" name="nickname" minlength="2" maxlength="16"
+          autocomplete="nickname" required>
+
+        <div class="option-grid">
+          <label>Giới tính
+            <select name="gender">
+              <option value="male">♂ Nam</option>
+              <option value="female">♀ Nữ</option>
+            </select>
+          </label>
+          <label>Kiểu tóc
+            <select name="hairStyle">
+              <option value="short">Tóc ngắn</option>
+              <option value="long">Tóc dài</option>
+            </select>
+          </label>
+          <label>Khuôn mặt
+            <select name="faceStyle">
+              <option value="A">Khuôn mặt A</option>
+              <option value="B">Khuôn mặt B</option>
+              <option value="C">Khuôn mặt C</option>
+            </select>
+          </label>
+          <label>Màu tóc
+            <select name="hairColor">
+              <option value="black">Đen</option>
+              <option value="brown">Nâu</option>
+              <option value="chestnut">Nâu hạt dẻ</option>
+              <option value="blonde">Vàng</option>
+            </select>
+          </label>
+          <label>Áo
+            <select name="shirtStyle">
+              <option value="shirt">Áo thường</option>
+              <option value="hoodie">Áo hoodie</option>
+            </select>
+          </label>
+          <label>Màu áo
+            <select name="shirtColor">
+              <option value="blue">Xanh dương</option>
+              <option value="red">Đỏ</option>
+              <option value="green">Xanh lá</option>
+              <option value="yellow">Vàng</option>
+              <option value="purple">Tím</option>
+            </select>
+          </label>
+          <label>Quần
+            <select name="pantsColor">
+              <option value="gray">Xám</option>
+              <option value="navy">Xanh đậm</option>
+              <option value="brown">Nâu</option>
+              <option value="black">Đen</option>
+            </select>
+          </label>
+          <label>Giày
+            <select name="shoesStyle">
+              <option value="sneakers">Giày thể thao</option>
+              <option value="boots">Bốt</option>
+              <option value="sandals">Dép</option>
+            </select>
+          </label>
+          <label>Balo
+            <select name="backpack">
+              <option value="brown">Balo nâu</option>
+              <option value="red">Balo đỏ</option>
+              <option value="blue">Balo xanh</option>
+              <option value="none">Không dùng</option>
+            </select>
+          </label>
+          <label>Phụ kiện
+            <select name="accessory">
+              <option value="none">Không có</option>
+              <option value="glasses">Kính</option>
+              <option value="scarf">Khăn quàng</option>
+              <option value="bow">Nơ</option>
+            </select>
+          </label>
+        </div>
+
+        <p id="character-message" class="character-message" role="status" aria-live="polite"></p>
+        <button id="character-submit" class="wood-button" type="submit">Tạo nhân vật</button>
+      </section>
+
+      <aside class="character-preview" aria-label="Xem trước nhân vật">
+        <div class="preview-caption">NHÂN VẬT CỦA BẠN</div>
+        <div class="preview-stage">
+          <div class="preview-spark spark-one" aria-hidden="true">✦</div>
+          <div class="preview-spark spark-two" aria-hidden="true">✦</div>
+          <canvas id="character-preview" width="240" height="300"></canvas>
+        </div>
+        <p id="preview-name" class="preview-name">Nhân vật mới</p>
+        <p class="preview-room">Phòng học · K35</p>
+      </aside>
+    </form>
+
+    <p class="character-footer">TIẾU TIẾU · HÀNH TRÌNH HỌC TẬP CỦA BẠN</p>
+  </section>
+</main>
+
+<main id="world-screen" class="hidden">
+  <header class="world-topbar">
+    <div class="world-brand">
+      <img class="world-logo" src="assets/logo.png" alt="" draggable="false">
+      <div>
+        <strong>TIẾU TIẾU</strong>
+        <span>Khuôn viên K35</span>
+      </div>
+    </div>
+    <div class="world-account">
+      <span id="world-account-label"></span>
+      <button class="player-menu-button" type="button" data-open-player-menu>☰ Menu</button>
+      <button id="world-logout-btn" type="button">Đăng xuất</button>
+    </div>
+  </header>
+
+  <section class="world-map-shell" aria-label="Bản đồ khuôn viên TIẾU TIẾU">
+    <div class="world-map">
+      <canvas id="world-map-canvas" width="480" height="960" aria-hidden="true"></canvas>
+      <button class="map-hotspot hotspot-school" data-destination="school" type="button"
+        aria-label="Vào lớp học K35"><span>Lớp học</span></button>
+      <button class="map-hotspot hotspot-shop" data-destination="shop" type="button"
+        aria-label="Mở cửa hàng vật phẩm"><span>Cửa hàng</span></button>
+      <button class="map-hotspot hotspot-campus" data-destination="campus" type="button"
+        aria-label="Khuôn viên, đang phát triển"><span>Khuôn viên</span></button>
+      <button class="map-hotspot hotspot-house" data-destination="house" type="button"
+        aria-label="Nhà, đang phát triển"><span>Nhà</span></button>
+      <button class="map-hotspot hotspot-farm" data-destination="farm" type="button"
+        aria-label="Trang trại, đang phát triển"><span>Trang trại</span></button>
+    </div>
+  </section>
+
+  <p id="world-message" class="world-message" role="status" aria-live="polite">
+    Chọn một điểm đến.
+  </p>
+
+  <dialog id="shop-dialog" class="shop-dialog" aria-labelledby="shop-title">
+    <div class="shop-content">
+      <header class="shop-header">
+        <div>
+          <p class="character-kicker">CỬA HÀNG KHUÔN VIÊN · TIẾU TIẾU CÁC</p>
+          <h2 id="shop-title">Cửa hàng Tiếu Tiếu</h2>
+        </div>
+        <div class="shop-balance">
+          <span>🪙 Số Xu</span>
+          <strong id="shop-balance">— Xu</strong>
+        </div>
+        <button id="close-shop" class="dialog-close" type="button" aria-label="Đóng cửa hàng">×</button>
+      </header>
+
+      <div class="shop-layout">
+        <aside class="shop-fitting-room" aria-label="Phòng thử đồ">
+          <p class="shop-fitting-kicker">PHÒNG THỬ ĐỒ PIXEL</p>
+          <div class="shop-fitting-stage">
+            <canvas id="shop-preview-canvas" width="210" height="240" aria-label="Xem trước nhân vật"></canvas>
+          </div>
+          <p id="shop-preview-label" class="shop-preview-label">Đang mặc trang phục hiện tại</p>
+          <button id="shop-reset-preview" class="shop-reset-preview hidden" type="button">↺ Bỏ thử đồ</button>
+          <div id="shop-equipped-list" class="shop-equipped-list" aria-label="Trang bị đang mặc"></div>
+        </aside>
+
+        <div class="shop-catalog-main">
+          <nav id="shop-categories" class="shop-categories" aria-label="Danh mục vật phẩm">
+            <button type="button" class="shop-category active" data-category="all" aria-pressed="true">✨ Tất cả</button>
+            <button type="button" class="shop-category" data-category="clothing" aria-pressed="false">👘 Quần áo</button>
+            <button type="button" class="shop-category" data-category="accessory" aria-pressed="false">🎀 Phụ kiện</button>
+            <button type="button" class="shop-category" data-category="wings" aria-pressed="false">🪽 Cánh</button>
+            <button type="button" class="shop-category" data-category="pet" aria-pressed="false">🐾 Pet</button>
+            <button type="button" class="shop-category" data-category="collection:Gấu trúc" aria-pressed="false">🐼 BST Gấu trúc</button>
+            <button type="button" class="shop-category" data-category="collection:Phi hành gia" aria-pressed="false">🚀 BST Phi hành gia</button>
+            <button type="button" class="shop-category" data-category="collection:Lễ hội" aria-pressed="false">🏮 Tết &amp; Trung thu</button>
+            <button type="button" class="shop-category" data-category="collection:Trường học" aria-pressed="false">🏫 Trường học</button>
+          </nav>
+          <p id="shop-message" class="shop-message" role="status" aria-live="polite"></p>
+          <div id="shop-items" class="shop-items" aria-label="Vật phẩm cửa hàng"></div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="destination-dialog" class="destination-dialog">
+    <form method="dialog">
+      <button class="dialog-close" aria-label="Đóng">×</button>
+      <p class="character-kicker">Sever TIẾU TIẾU</p>
+      <h2 id="destination-title"></h2>
+      <p id="destination-description"></p>
+      <button class="wood-button" value="close">Đóng</button>
+    </form>
+  </dialog>
+</main>
+
+<dialog id="player-menu-dialog" class="player-menu-dialog" aria-labelledby="player-menu-title">
+  <div class="player-menu-content">
+    <header class="player-menu-header">
+      <div>
+        <p class="character-kicker">HỒ SƠ NGƯỜI CHƠI</p>
+        <h2 id="player-menu-title">Menu</h2>
+      </div>
+      <button id="close-player-menu" class="dialog-close" type="button" aria-label="Đóng menu">×</button>
+    </header>
+    <div class="player-menu-tabs" role="tablist" aria-label="Thông tin tài khoản">
+      <button id="profile-tab" class="player-menu-tab active" type="button" role="tab"
+        aria-selected="true" aria-controls="profile-panel">Thông tin</button>
+      <button id="inventory-tab" class="player-menu-tab" type="button" role="tab"
+        aria-selected="false" aria-controls="inventory-panel">🎁 Rương đồ</button>
+      <button id="games-tab" class="player-menu-tab hidden" type="button" role="tab"
+        aria-selected="false" aria-controls="games-panel">🎮 Trò chơi</button>
+    </div>
+    <p id="player-menu-message" class="player-menu-message" role="status" aria-live="polite"></p>
+    <section id="profile-panel" class="player-menu-panel" role="tabpanel" aria-labelledby="profile-tab">
+      <p id="profile-name" class="profile-character-name"></p>
+      <p id="profile-username" class="profile-username"></p>
+      <div class="stats-grid">
+        <article class="stat-card">
+          <span class="stat-icon" aria-hidden="true">🏅</span>
+          <span class="stat-label">Cấp độ</span>
+          <strong id="profile-level">1</strong>
+        </article>
+        <article class="stat-card">
+          <span class="stat-icon" aria-hidden="true">✨</span>
+          <span class="stat-label">Kinh nghiệm</span>
+          <strong id="profile-exp">0 EXP</strong>
+        </article>
+        <article class="stat-card xu-card">
+          <span class="stat-icon" aria-hidden="true">🪙</span>
+          <span class="stat-label">Xu</span>
+          <strong id="profile-xu">0</strong>
+        </article>
+      </div>
+      <p class="stats-note">EXP và Xu sẽ tăng khi bạn tham gia các hoạt động trong game.</p>
+    </section>
+    <section id="inventory-panel" class="player-menu-panel hidden" role="tabpanel"
+      aria-labelledby="inventory-tab">
+      <div class="inventory-heading">
+        <span class="inventory-chest" aria-hidden="true">🧰</span>
+        <div>
+          <h3>Rương đồ của bạn</h3>
+          <p id="inventory-count">0 vật phẩm</p>
+        </div>
+      </div>
+      <p id="inventory-empty" class="inventory-empty">Rương đang trống. Vật phẩm bạn nhận được trong game sẽ được cất ở đây.</p>
+      <div id="inventory-items" class="inventory-items" aria-label="Vật phẩm trong rương"></div>
+    </section>
+    <section id="games-panel" class="player-menu-panel hidden" role="tabpanel" aria-labelledby="games-tab">
+      <h3 class="games-heading">Trò chơi trong lớp</h3>
+      <p class="games-intro">Cả hai trò chơi: mỗi câu có 30 giây và tự chuyển câu. 5 học sinh trả lời đúng nhanh nhất mỗi câu nhận 20 EXP và 20 Xu.</p>
+      <div class="teacher-game-list">
+        <article class="teacher-game-card">
+          <div class="teacher-game-details">
+            <h4>Đố từ vựng trắc nghiệm</h4>
+            <p>Trả lời A/B/C/D qua chat. Mỗi câu có 30 giây; 5 người đúng nhanh nhất nhận 20 EXP và 20 Xu.</p>
+            <label for="quiz-file">Nhập bộ câu hỏi (.xlsx hoặc .csv)</label>
+            <input id="quiz-file" type="file" accept=".xlsx,.csv">
+            <button id="quiz-template" class="quiz-template-button" type="button">Tải file mẫu CSV</button>
+            <p id="quiz-import-message" class="quiz-import-message" role="status" aria-live="polite"></p>
+          </div>
+          <div class="teacher-game-actions">
+            <button id="quiz-start" type="button" disabled>Khởi động</button>
+            <button id="quiz-next" type="button" disabled>Bỏ qua câu</button>
+            <button id="quiz-end" type="button" disabled>Kết thúc</button>
+          </div>
+        </article>
+        <article class="teacher-game-card">
+          <div class="teacher-game-details">
+            <h4>Đoán Nghĩa Hán Tự</h4>
+            <p>Mỗi chữ Hán có 30 giây. Học sinh trả lời nghĩa tiếng Việt qua chat; chấp nhận cả chữ hoa/thường và câu trả lời không dấu. 5 người đúng nhanh nhất nhận 20 EXP và 20 Xu.</p>
+            <label for="hanzi-file">Nhập bộ câu hỏi (.xlsx hoặc .csv)</label>
+            <input id="hanzi-file" type="file" accept=".xlsx,.csv">
+            <button id="hanzi-template" class="quiz-template-button" type="button">Tải file mẫu CSV</button>
+            <p id="hanzi-import-message" class="quiz-import-message" role="status" aria-live="polite"></p>
+          </div>
+          <div class="teacher-game-actions">
+            <button id="hanzi-start" type="button" disabled>Bắt đầu game 2</button>
+            <button id="hanzi-end" type="button" disabled>Kết thúc</button>
+          </div>
+        </article>
+      </div>
+    </section>
+  </div>
+</dialog>
+
+<main id="game-screen" class="hidden">
+  <header id="topbar">
+    <button id="back-to-world" type="button">← Khuôn viên</button>
+    <span id="room-label">Phòng K35</span>
+    <span id="count-label">0 người</span>
+    <div class="account-actions">
+      <span id="account-label"></span>
+      <button class="player-menu-button" type="button" data-open-player-menu>☰ Menu</button>
+      <button id="logout-btn" type="button">Đăng xuất</button>
+    </div>
+  </header>
+  <p id="game-message" class="game-message" role="status" aria-live="polite"></p>
+  <section id="quiz-stage" class="quiz-stage hidden" aria-labelledby="quiz-stage-title" aria-live="polite">
+    <div class="quiz-stage-heading">
+      <h2 id="quiz-stage-title">Đố từ vựng trắc nghiệm</h2>
+      <p id="quiz-progress"></p>
+    </div>
+    <p id="quiz-question" class="quiz-question"></p>
+    <div id="quiz-answer-options" class="quiz-answer-options" role="group" aria-label="Các đáp án"></div>
+    <ol id="hanzi-winners" class="hanzi-winners hidden" aria-label="Thứ hạng trả lời đúng"></ol>
+    <p id="quiz-stage-message" class="quiz-stage-message" role="status" aria-live="polite"></p>
+  </section>
+  <section id="admin-panel" class="admin-panel hidden" aria-label="Quản lý tài khoản">
+    <div class="admin-heading">
+      <h2>Quản lý tài khoản giáo viên</h2>
+      <button id="refresh-users" type="button">Làm mới</button>
+    </div>
+    <form id="admin-teacher-form" class="admin-teacher-form">
+      <div class="admin-teacher-field">
+        <label for="teacher-username">Tên đăng nhập giáo viên</label>
+        <input id="teacher-username" name="username" type="text" minlength="3" maxlength="20"
+          pattern="[A-Za-z0-9_]{3,20}" autocomplete="off" placeholder="Ví dụ: giao_vien01" required>
+      </div>
+      <div class="admin-teacher-field">
+        <label for="teacher-password">Mật khẩu ban đầu</label>
+        <input id="teacher-password" name="password" type="password" minlength="10" maxlength="72"
+          autocomplete="new-password" placeholder="Ít nhất 10 ký tự" required>
+      </div>
+      <button type="submit">Tạo tài khoản giáo viên</button>
+    </form>
+    <p id="admin-message" role="status" aria-live="polite"></p>
+    <div id="user-list"></div>
+  </section>
+  <canvas id="game" width="960" height="540" aria-label="Phòng học Tiểu Tiểu"></canvas>
+
+  <section id="chat-box" aria-label="Trò chuyện trong lớp">
+    <div id="chat-log" aria-live="polite"></div>
+    <form id="chat-row">
+      <input id="chat-input" type="text" maxlength="200" placeholder="Nhắn gì đó..." autocomplete="off">
+      <button id="chat-send" type="submit">Gửi</button>
+    </form>
+  </section>
+
+  <div id="dpad" aria-label="Điều khiển nhân vật">
+    <button data-dir="up" class="dp dp-up" aria-label="Đi lên">▲</button>
+    <button data-dir="left" class="dp dp-left" aria-label="Đi sang trái">◀</button>
+    <button data-dir="right" class="dp dp-right" aria-label="Đi sang phải">▶</button>
+    <button data-dir="down" class="dp dp-down" aria-label="Đi xuống">▼</button>
+  </div>
+</main>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/vendor/xlsx/xlsx.full.min.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
