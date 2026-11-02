@@ -8,7 +8,7 @@ const socketClientPath = path.resolve(
   'client-dist',
   'socket.io.min.js',
 );
-const xlsxDistPath = path.resolve(path.dirname(require.resolve('@e965/xlsx')), 'dist');
+const xlsxClientPath = require.resolve('@e965/xlsx/dist/xlsx.full.min.js');
 
 app.disable('x-powered-by');
 app.get('/socket.io-client.js', (request, response, next) => {
@@ -16,7 +16,11 @@ app.get('/socket.io-client.js', (request, response, next) => {
     if (error) next(error);
   });
 });
-app.use('/vendor/xlsx', express.static(xlsxDistPath));
+app.get('/vendor/xlsx/xlsx.full.min.js', (request, response, next) => {
+  response.sendFile(xlsxClientPath, (error) => {
+    if (error) next(error);
+  });
+});
 app.use((request, response) => {
   response.sendStatus(404);
 });
