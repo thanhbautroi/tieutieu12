@@ -1740,7 +1740,8 @@ function showGame(user) {
   socket = io({
     reconnectionAttempts: 5,
     ...(isLocalDevelopment ? {} : {
-      path: '/api/socket-io/socket.io',
+      path: '/api/socket-io',
+      addTrailingSlash: false,
       transports: ['websocket'],
     }),
   });

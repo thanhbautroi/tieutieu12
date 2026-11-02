@@ -13,16 +13,24 @@
       "destination": "/client/index.html"
     },
     {
-      "source": "/vendor/xlsx/:path*",
-      "destination": "/api/vendor/xlsx/:path*"
+      "source": "/api/socket-io/:path*",
+      "destination": "/api/socket-io"
     },
     {
-      "source": "/socket.io/socket.io.js",
-      "destination": "/api/socket-io/socket.io/socket.io.js"
+      "source": "/socket.io-client.js",
+      "destination": "/client/socket.io-client.js"
+    },
+    {
+      "source": "/vendor/xlsx/:path*",
+      "destination": "/api/http?route=api/vendor/xlsx/:path*"
     },
     {
       "source": "/health",
-      "destination": "/api/health"
+      "destination": "/api/http?route=api/health"
+    },
+    {
+      "source": "/api/:path*",
+      "destination": "/api/http?route=api/:path*"
     },
     {
       "source": "/:path*",

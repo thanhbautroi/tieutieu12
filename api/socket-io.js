@@ -7,7 +7,8 @@ const server = http.createServer((request, response) => {
   response.end('Not found');
 });
 const io = new Server(server, {
-  path: '/api/socket-io/socket.io',
+  path: '/api/socket-io',
+  addTrailingSlash: false,
   transports: ['websocket'],
   maxHttpBufferSize: 16_384,
 });

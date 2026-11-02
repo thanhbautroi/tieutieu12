@@ -126,8 +126,8 @@ broadcast giữa các instance. MongoDB Atlas phải dùng replica set (Atlas đ
 2. Thêm `MONGODB_URI` trong Project Settings → Environment Variables bằng cách sao chép
    giá trị từ `.env` cục bộ trực tiếp vào Vercel; không đưa giá trị đó vào mã nguồn hoặc chat.
    Có thể đặt thêm `DB_NAME` và `ADMIN_BOOTSTRAP_TOKEN` nếu cần.
-3. Deploy. Vercel phục vụ trang tĩnh từ `client/`, HTTP API từ `api/[...path].js` và kết nối
-   WebSocket tại `/api/socket-io/socket.io`.
+3. Deploy. Vercel phục vụ trang tĩnh từ `client/`, HTTP API từ `api/http.js` và kết nối
+   WebSocket tại `/api/socket-io`.
 4. Kiểm tra `/health`, đăng nhập và vào lớp. Nếu URI MongoDB bị giới hạn IP trong Atlas,
    cấu hình kết nối mạng cho môi trường deploy một cách an toàn; không mở rộng quyền truy cập
    database hơn mức cần thiết.

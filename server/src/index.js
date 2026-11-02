@@ -74,6 +74,14 @@ async function start() {
     bootstrapToken: process.env.ADMIN_BOOTSTRAP_TOKEN,
   }));
   app.use('/api/shop', createShopRouter(auth));
+  app.get('/socket.io-client.js', (request, response, next) => {
+    response.sendFile(
+      path.join(__dirname, '..', '..', 'node_modules', 'socket.io', 'client-dist', 'socket.io.min.js'),
+      (error) => {
+        if (error) next(error);
+      },
+    );
+  });
   app.use('/vendor/xlsx', express.static(path.join(__dirname, '..', '..', 'node_modules', '@e965', 'xlsx', 'dist')));
   app.use(express.static(path.join(__dirname, '..', '..', 'client')));
   app.get('/health', (request, response) => {
