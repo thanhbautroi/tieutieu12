@@ -1,5 +1,3 @@
-require('dotenv').config({ path: require('path').join(__dirname, '..', '..', '.env') });
-
 const path = require('path');
 const express = require('express');
 const rateLimit = require('express-rate-limit');

@@ -2,7 +2,7 @@
   "name": "tieu-tieu",
   "private": true,
   "engines": {
-    "node": ">=20"
+    "node": "24.x"
   },
   "dependencies": {
     "@e965/xlsx": "^0.20.3",
