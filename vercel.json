@@ -18,11 +18,11 @@
     },
     {
       "source": "/socket.io-client.js",
-      "destination": "/client/socket.io-client.js"
+      "destination": "/api/assets?asset=socket.io-client.js"
     },
     {
       "source": "/vendor/xlsx/:path*",
-      "destination": "/api/http?route=api/vendor/xlsx/:path*"
+      "destination": "/api/assets?asset=xlsx/:path*"
     },
     {
       "source": "/health",

@@ -21,7 +21,6 @@
     "start": "npm --workspace server start",
     "test:simulate": "npm --workspace server run test:simulate",
     "reset-admin-password": "npm --workspace server run reset-admin-password",
-    "vercel-build": "node scripts/build-vercel-client.js",
     "test": "npm --workspace server test"
   }
 }
